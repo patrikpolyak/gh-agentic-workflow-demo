@@ -11,6 +11,7 @@ permissions:
 strict: true
 network:
   allowed:
+    - awesome-copilot.github.com
     - defaults
     - github.blog
     - github.com
@@ -31,10 +32,11 @@ safe-outputs:
 
 Read `notes/mona-notes.md` before drafting content. Use GitHub repository API tools, not terminal commands, CLI commands, or sandboxed commands, to read repository guidance and reference files.
 
-Fetch and review these official sources:
+Use web fetch to retrieve and review these official sources:
 
 - https://github.blog/latest/
 - https://github.blog/changelog/
+- https://awesome-copilot.github.com/workflows/
 
 Update `site/content/github-info.md` only when the sources contain practical, current GitHub updates that fit Mona's editorial notes. Keep summaries short, include the official source URL and date for each selected update, and do not invent details.
 
