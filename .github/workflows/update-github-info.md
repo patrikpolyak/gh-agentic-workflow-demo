@@ -20,7 +20,8 @@ tools:
     mode: local
     toolsets: [repos]
   edit: true
-  web-fetch: {}
+  # The Copilot engine exposes no web-fetch tool; external sources are fetched with curl through the firewall allowlist.
+  bash: ["curl:*"]
 safe-outputs:
   create-pull-request:
     title-prefix: "[github-info] "
@@ -30,9 +31,9 @@ safe-outputs:
 
 # Update GitHub Info
 
-Read `notes/mona-notes.md` before drafting content. Use GitHub repository API tools, not terminal commands, CLI commands, or sandboxed commands, to read repository guidance and reference files.
+Read `notes/mona-notes.md` before drafting content. Use GitHub repository API tools, not terminal commands, to read repository guidance and reference files.
 
-Use web fetch to retrieve and review these official sources:
+Use `curl` to retrieve and review these official sources (for example `curl -sL -m 30 <url>`), then read the returned HTML for the update entries:
 
 - https://github.blog/latest/
 - https://github.blog/changelog/
