@@ -15,6 +15,17 @@ network:
     - defaults
     - github.blog
     - github.com
+# The Copilot CLI gates network-capable shell commands (curl/wget/fetch) behind a
+# separate per-domain URL approval on top of the firewall allowlist and the bash
+# tool allowlist below; --allow-url pre-approves it so curl isn't denied in
+# headless CI (no interactive user to approve it). See github/copilot-cli#3165
+# and the "Allowing and denying tool use" Copilot CLI docs.
+engine:
+  id: copilot
+  args:
+    - "--allow-url=github.blog"
+    - "--allow-url=awesome-copilot.github.com"
+    - "--allow-url=github.com"
 tools:
   github:
     mode: local
