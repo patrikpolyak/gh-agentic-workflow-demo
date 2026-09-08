@@ -33,11 +33,13 @@ safe-outputs:
 
 Read `notes/mona-notes.md` before drafting content. Use GitHub repository API tools, not terminal commands, to read repository guidance and reference files.
 
-Use `curl` to retrieve and review these official sources (for example `curl -sL -m 30 <url>`), then read the returned HTML for the update entries:
+Use `curl` to retrieve and review these official sources, then read the returned HTML for the update entries:
 
 - https://github.blog/latest/
 - https://github.blog/changelog/
 - https://awesome-copilot.github.com/workflows/
+
+Fetch each URL with its own plain, single-command `curl` call, for example `curl -sL -m 30 <url> -o /tmp/gh-aw/agent/<name>.html`. Do not combine multiple commands into one call (no `&&`, `;`, `|`, or multi-line scripts) and do not add extra flags beyond `-s`/`-L`/`-m`/`-o` — the sandbox only auto-approves plain, atomic `curl` invocations and will deny anything more complex. Read each downloaded file with a separate tool call afterwards.
 
 Update `site/content/github-info.md` only when the sources contain practical, current GitHub updates that fit Mona's editorial notes. Keep summaries short, include the official source URL and date for each selected update, and do not invent details.
 
